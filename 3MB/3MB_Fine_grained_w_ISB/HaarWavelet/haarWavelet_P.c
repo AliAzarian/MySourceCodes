@@ -15,7 +15,6 @@ int main(void) {
 	for (m=0; m < Number_of_Images; m++)  // loop for Images 
 	{
 			getfsl(id1,0);	                       // Start Signal					
-	
 // Apply 1D Haar horizontally
     for ( i=0; i<WIDTH; i++) {
       //Haar1D.fwt(in[i], buf1[i], size, level);

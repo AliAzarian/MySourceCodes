@@ -33,7 +33,7 @@ int main(void) {
 	//------- LOOP FOR IMAGES -------
 	for (k=0; k < Number_of_Images; k++)  // loop for Images 
 	{
-		// Apply 1D Haar vertically
+			// Apply 1D Haar vertically
      for (i=0; i<LENGTH; i++) {
       //Haar1D.fwt(buf2[i], buf2[i], size, level);
     	for (j=0; j<WIDTH; j+=2) {
