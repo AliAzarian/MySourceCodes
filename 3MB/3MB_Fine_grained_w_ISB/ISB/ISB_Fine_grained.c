@@ -21,8 +21,8 @@ int index_local[BUFFER_SIZE];
 int data_local[BUFFER_SIZE];
 char flag_local[BUFFER_SIZE];
 
-int *data_ext = (int *) TMP1;
-int *flag_ext = (int *) TMP2;
+int *data_ext = (int *) DATA;
+int *flag_ext = (int *) FLAG;
 
 int sl; // store in local memory
 int ll; // load from local memory
@@ -48,7 +48,7 @@ miss_p=0;miss_c=0;
    
     
     //int MASK_LENGTH = (int) ceil((log(BUFFER_SIZE))/log(2));
-    int MASK_LENGTH = 4;
+    int MASK_LENGTH = 10;
     int MASK = ((1 << MASK_LENGTH) - 1);
 	 
     /* INIT THE PRODUCER TO START: */
@@ -99,7 +99,7 @@ miss_p=0;miss_c=0;
         {
             ll++;
 				data2 = data_local[hash2];               // Read the data from local table            
-            putfsl(sl, 0);               			// Send data to the consumer      
+            putfsl(le, 0);               			// Send data to the consumer      
             flag_local[hash2] = 0;               		// set the flag
             get = 1;
         }
@@ -107,7 +107,7 @@ miss_p=0;miss_c=0;
          { // here it was get=0;
 				le++;
             data22=data_ext[index2];
-				putfsl(sl, 0);
+				putfsl(le, 0);
 				flag_ext[index2]=0;
 				get = 1;            
         }
